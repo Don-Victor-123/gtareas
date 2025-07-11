@@ -1,6 +1,8 @@
-<?php session_start();
+<?php
+session_start();
 if (!isset($_SESSION['user'])) {
-    header('Location: /login.php'); exit;
+    header('Location: /login.php');
+    exit;
 }
 ?>
 <!DOCTYPE html>
@@ -13,14 +15,6 @@ if (!isset($_SESSION['user'])) {
 <body>
 <header>
     <h1>Bloc de Notas</h1>
-    <p>Hola, <?= htmlspecialchars(\$_SESSION['user']['username']) ?> | <a href="/logout.php">Salir</a></p>
-    <nav>
-        <?php if (\$_SESSION['user']['role']==='Administrador'): ?>
-            <a href="/administrador/users.php">Usuarios</a>
-        <?php endif; ?>
-        <?php if (\$_SESSION['user']['role']==='Recepcionista'): ?>
-            <a href="/recepcionista/notes.php">Notas</a>
-        <?php endif; ?>
-    </nav>
+    <p>Usuario: <?= htmlspecialchars($_SESSION['user']['username']) ?> | <a href="/logout.php">Cerrar sesión</a></p>
 </header>
 <main>
