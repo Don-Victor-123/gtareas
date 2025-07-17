@@ -7,7 +7,9 @@ if ($_SESSION['user']['role'] !== 'Recepcionista') exit('Acceso denegado');
 <html lang="es">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Dashboard Notas</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
 <link rel="stylesheet" href="dashboard.css">
 <script>
 document.addEventListener('DOMContentLoaded', function(){
@@ -69,27 +71,29 @@ document.addEventListener('DOMContentLoaded', function(){
 });
 </script>
 </head>
-<body>
-<button id="toggleSidebar">☰</button>
+<body class="bg-light">
+<button id="toggleSidebar" class="btn btn-dark btn-sm">☰</button>
 <div id="sidebar">
     <h3>Tareas Pendientes</h3>
     <ul id="pendientesSidebar"></ul>
     <h3>Realizadas</h3>
     <ul id="realizadasSidebar"></ul>
 </div>
-<h2>Dashboard de Notas</h2>
-<label>Selecciona fecha: <input type="date" id="selectedDate"></label>
+<div class="container-fluid" id="mainContent">
+<h2 class="mb-3">Dashboard de Notas</h2>
+<label class="form-label">Selecciona fecha: <input type="date" id="selectedDate" class="form-control" style="width:auto;display:inline-block"></label>
 <div id="notesContainer">
-    <h3>Pendiente</h3><ul id="pendiente"></ul>
-    <h3>En Proceso</h3><ul id="en_proceso"></ul>
-    <h3>Realizado</h3><ul id="completada"></ul>
+    <h3>Pendiente</h3><ul id="pendiente" class="list-unstyled"></ul>
+    <h3>En Proceso</h3><ul id="en_proceso" class="list-unstyled"></ul>
+    <h3>Realizado</h3><ul id="completada" class="list-unstyled"></ul>
 </div>
-<h3>Agregar Nota</h3>
-<form id="noteForm">
+<h3 class="mt-4">Agregar Nota</h3>
+<form id="noteForm" class="mt-2">
     <input type="hidden" name="date" id="noteDate">
-    <label>Título:<input name="title" required></label><br>
-    <label>Contenido:<textarea name="content" required></textarea></label><br>
-    <button type="submit">Guardar</button>
+    <label class="form-label">Título:<input name="title" required class="form-control"></label>
+    <label class="form-label">Contenido:<textarea name="content" required class="form-control"></textarea></label>
+    <button type="submit" class="btn btn-primary mt-3">Guardar</button>
 </form>
+</div>
 </body>
 </html>
