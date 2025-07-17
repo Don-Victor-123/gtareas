@@ -1,6 +1,6 @@
 <?php
 $host = 'localhost';
-$db   = 'bloc_notas';
+$db   = 'rnotas';
 $user = 'root';
 $pass = '';
 $charset = 'utf8mb4';
